@@ -1,0 +1,37 @@
+.wrapper{
+  .table{
+    font-family: "Helvetica Neue";
+    font-size: 18px;
+  }
+  .glyphicon-remove{
+    color: #e91e63;
+    &:hover{
+      color: #666666;
+    }
+  }
+  .title{
+    margin-bottom: 40px;
+    font-size: 32px;
+    font-family: "Helvetica Neue";
+    &.tip{
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+  }
+  .wrapper-rates{
+    .form-inline{
+      margin-bottom: 40px;
+    }
+  }
+  .wrapper-sign-in, .wrapper-sign-up{
+    padding-top: 60px;
+    .title{
+      font-family: "Helvetica Neue";
+    }
+    form{
+      .form-group{
+        max-width: 500px;
+      }
+    }
+  }
+}

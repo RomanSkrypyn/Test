@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CoaxsoftTestProject</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+  <% if flash[:alert].present? %>
+    <%= javascript_tag do %>
+        toastr.error("<%= flash[:alert] %>")
+    <% end %>
+  <% end %>
+  <% if flash[:notice].present? %>
+    <%= javascript_tag do %>
+      toastr.info("<%= flash[:notice] %>")
+    <% end %>
+  <% end %>
+  <%= render(partial: 'shared/navbar') %>
+  <div class="wrapper">
+    <%= yield %>
+  </div>
+  </body>
+</html>

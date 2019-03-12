@@ -1,0 +1,46 @@
+<div class="wrapper-rates">
+  <div class="container">
+    <p class="title">My exchange rates</p>
+    <%= form_tag(rates_path, method: :post, class: 'form-inline') do %>
+      <div class="form-group">
+        <%= select_tag('rate[currency_from_id]', options_from_collection_for_select(Currency.all, :id, :description), class: 'form-control') %>
+      </div>
+      <div class="form-group">
+        <%= select_tag('rate[currency_to_id]', options_from_collection_for_select(Currency.all, :id, :description), class: 'form-control') %>
+      </div>
+      <%= submit_tag 'Create rate', class: 'btn btn-primary' %>
+    <% end %>
+    <% if @rates.present? %>
+    <table class="table">
+      <thead>
+      <tr>
+        <th class="text-left">Currency From</th>
+        <th class="text-left">Currency To</th>
+        <th class="text-left">Amount</th>
+        <th class="text-left">Remove</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @rates.each do |rate| %>
+        <tr>
+          <td class="text-left">
+            <%= rate.currency_from.description %>
+          </td>
+          <td class="text-left">
+            <%= rate.currency_to.description %>
+          </td>
+          <td class="text-left">
+            <%= rate.amount %>
+          </td>
+          <td class="text-left">
+            <%= link_to rate_path(rate.id), method: :delete do %>
+              <span class="glyphicon glyphicon-remove"></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <% end %>
+  </div>
+</div>

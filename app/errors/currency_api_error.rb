@@ -1,0 +1,2 @@
+class CurrencyApiError < StandardError
+end
